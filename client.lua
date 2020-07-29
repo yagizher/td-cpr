@@ -1,5 +1,6 @@
-local PlayerData                = {}
-ESX                             = nil
+-- teamDemo --
+local PlayerData = {}
+ESX = nil
 
 
 Citizen.CreateThread(function()
@@ -31,12 +32,7 @@ AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
 end)
 
-
-
-
-
-
-RegisterCommand('cpr', function(data,ped)
+RegisterCommand('cpr', function(data, ped)
     local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
             local closestPlayerPed = GetPlayerPed(closestPlayer)
             ESX.TriggerServerCallback('td-cpr:isplayerdead', function(isPedDead)
