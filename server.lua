@@ -5,7 +5,8 @@ ESX.RegisterServerCallback('td-cpr:isplayerdead', function(source, cb, target)
     local player = ESX.GetPlayerFromId(target)
     MySQL.Async.fetchAll('SELECT is_dead FROM users WHERE identifier = @identifier', {
         ['@identifier'] = player.identifier
-    }, function(results)
-        cb(results[1].is_dead)
+    }, function(result)
+        local isDead = result[1].is_dead
+        cb(isDead)
     end)
 end)
